@@ -1,8 +1,7 @@
 #!/bin/bash
 # XFCE Night Mode controlled by Redshift
 #
-# https://gitlab.com/bimlas/xfce4-night-mode (main repository)
-# https://github.com/bimlas/xfce4-night-mode (mirror, please star if you like the plugin)
+# https://github.com/bimlas/xfce4-night-mode (please star if you like the plugin)
 
 # Change this variable to define which mode to use while RedShift transitions from day to night or vice versa
 # Choices: night|day
