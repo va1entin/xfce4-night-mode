@@ -1,3 +1,17 @@
+= About this fork
+
+This is a fork of bimlas/xfce4-night-mode with the following features added:
+
+* Theme/mode configuration for "transition" period of redshift between day and night
+set `$TRANSITION_MODE` in `xfce4-night-mode-redshift.sh`
+
+* Override mechanism to keep currently active theme if a tmp file exists
+`touch /tmp/xfce4-night-mode.lock` to enable
+
+It's generally kept in sync with the upstream master.
+
+Following is the upstream README.
+
 = XFCE Night Mode
 
 Shell script that allows you to easily *switch between dark and light variants
