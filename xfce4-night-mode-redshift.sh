@@ -9,17 +9,16 @@
 # Print XML for genmon plugin
 set_mode() {
   "$(dirname "$0")/xfce4-night-mode.sh" "$mode" | sed '/<tool>/,/<\/tool>/ d'
-  echo '<tool>
-    Night mode defined by RedShift
-    Click to toggle mode for a while
-  </tool>'
+  echo "<tool>$1</tool>"
   exit 0
 }
 
 # exit if override file exists to stay on current theme
 # for example if user changed it manually via UI and doesn't want it changed regardless of RedShift
 if [ -f /tmp/xfce4-night-mode.lock ]; then
-  set_mode
+  mode=$(xfconf-query --channel 'night-mode' --property /active)
+  set_mode "/tmp/xfce4-night-mode.lock exists!
+Staying on currently active mode: $mode"
 fi
 
 TRANSITION_MODE='night'
@@ -52,4 +51,5 @@ case $redshift_period in
     ;;
 esac
 
-set_mode
+set_mode "Night mode defined by RedShift.
+Click to toggle mode for a while"
