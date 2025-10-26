@@ -1,6 +1,6 @@
 = About this fork
 
-This is a fork of bimlas/xfce4-night-mode with the following features added:
+This is a fork of https://github.com/bimlas/xfce4-night-mode[bimlas/xfce4-night-mode] with the following features added:
 
 * Theme/mode configuration for "transition" period of redshift between day and night
 ** set `$TRANSITION_MODE` in `xfce4-night-mode-redshift.sh`
