@@ -15,10 +15,16 @@ set_mode() {
 
 # exit if override file exists to stay on current theme
 # for example if user changed it manually via UI and doesn't want it changed regardless of RedShift
+# sometimes xfconf-query seems to return nothing for /active property ($mode appears empty),
+# meaning we can't just call set_mode with the current mode while override is active
 if [ -f /tmp/xfce4-night-mode.lock ]; then
-  mode=$(xfconf-query --channel 'night-mode' --property /active)
-  set_mode "/tmp/xfce4-night-mode.lock exists!
-Staying on currently active mode: $mode"
+  TEXT="$(xfconf-query --channel 'night-mode' --property /text 2> /dev/null)"
+  mode="$(xfconf-query --channel 'night-mode' --property /active)"
+  echo "<txt>$TEXT</txt>"
+  echo "<tool>/tmp/xfce4-night-mode.lock exists!
+Staying on currently active mode: $mode
+</tool>"
+  exit 0
 fi
 
 TRANSITION_MODE='night'
